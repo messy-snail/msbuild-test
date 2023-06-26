@@ -1,0 +1,14 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <ItemGroup>
+    <MyProjectReferences Include="**\*.csproj" />
+    <MyProjectReferences Remove="C:\Users\snail\Desktop\msbuild-test\ConsoleApp1\ConsoleApp2\ConsoleApp2.csproj" /> 
+    <!-- 여기에서 'Path\To\ExcludedProject.csproj'는 제외하려는 프로젝트의 경로입니다. -->
+  </ItemGroup>
+
+  <Target Name="BuildAllExceptOneProject">
+    <MSBuild Projects="@(MyProjectReferences)" Targets="Build" />
+  </Target>
+
+</Project>
+
